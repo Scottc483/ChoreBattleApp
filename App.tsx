@@ -1,13 +1,17 @@
-import { ScreenContent } from 'components/ScreenContent';
-import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
 
-import './global.css';
+import { AuthProvider } from './src/context/AuthContext';
+import AppNavigator from './src/navigation/AppNavigator';
 
-export default function App() {
+const App: React.FC = () => {
   return (
-    <>
-      <ScreenContent title="Home" path="App.tsx" />
-      <StatusBar style="auto" />
-    </>
+    <AuthProvider>
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
+    </AuthProvider>
   );
-}
+};
+
+export default App;
